@@ -43,10 +43,46 @@ import os
 # print("----------------------\n\n")
 # dir_print("./")
 
+# fp = "new.txt"
+
+# f = open(fp, "w")
+# f.close()
+
+# os.rename(fp, "new1.txt")
+# print("complete")
+
+# fp = "new.txt"
+# tp = "new1.txt"
+
+# f = open(fp, "w")
+# f.close()
+
+# if os.path.exists(tp) :
+#     print("exist, same name file")
+#     os.remove(tp)
+# else :
+#     os.rename(fp,"new1.txt")
+#     print("complete")
+
+
+def dir_print(p):
+    files = os.listdir(p)
+    for f in files :
+        print(f)
+        
 fp = "new.txt"
+tp = "new1.txt"
 
 f = open(fp, "w")
 f.close()
 
-os.rename(fp, "new1.txt")
-print("complete")
+dir_print("./")
+print("\n----------------------------------------\n\n")
+if os.path.exists(tp) :
+    os.remove(tp)
+    dir_print("./")
+    print("exist, same name file")
+else :
+    os.rename(fp, "new1.txt")
+    dir_print("./")
+    print("complete")
